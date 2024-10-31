@@ -1,0 +1,348 @@
+
+<!--BEST VIEW OF DESIGN IS 1920 X 1080-->
+<!--Scroll to the very bottom for references-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paint & Sip</title>
+    <link rel="stylesheet" href="style.css">
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.70/dist/shoelace.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.70/dist/shoelace.js"></script>
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+    
+
+</head>
+
+<body>
+
+    <!-------------------------- HEADER SECTION  ---------------------------->
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Paint & Sip Logo" onclick="shakeLogo()">
+        </div>
+        <sl-tab-group>
+          <sl-tab slot="nav" panel="card-section">History</sl-tab>
+          <sl-tab slot="nav" panel="events-section">Events</sl-tab>
+          <sl-tab slot="nav" panel="benefits-section">Benefits</sl-tab>
+          <sl-tab slot="nav" panel="wine-cheese-section">Wine & Cheese Pairings</sl-tab>
+          <sl-tab slot="nav" panel="tutorials-section">Tutorials</sl-tab>
+        </sl-tab-group>
+    </header>
+<!---------Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Gloss+and+Bloom&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+<!--------------------------- HISTORY SECTION  ---------------------------->
+
+<section class="history-section">
+  <div class="carousel-container">
+      <div class="carousel">
+          <img src="images/main.jpeg" alt="Hero Image 1" class="hero-image">
+          <img src="images/main2.jpg" alt="Hero Image 2" class="hero-image">
+          <img src="images/main3.jpg" alt="Hero Image 3" class="hero-image">
+      </div>
+      <!-- Navigation Arrows (moved outside .carousel) -->
+      <button class="carousel-btn prev" onclick="prevImage()">&#10094;</button>
+      <button class="carousel-btn next" onclick="nextImage()">&#10095;</button>
+  </div>
+
+  <div class="text-container">
+      <h1 class="hero-title">Paint & Sip</h1>
+      <div class="popup-trigger" onclick="showPopup()">
+          <img src="images/popup.png" alt="Spinning Shape" class="spinning-shape">
+          <p class="shape-text">Have no idea what paint and sip is? Check <span class="underline">me</span> out.</p>
+      </div>
+  </div>
+
+
+  <!-- Popup Modal -->
+  <div class="popup" id="infoPopup">
+      <button class="close-btn" onclick="closePopup()">X</button>
+      <h2 class="popup-title">What is Paint and Sip?</h2>
+      <div class="popup-content">
+          <img src="images/paintub.png" alt="Paint Tube">
+          <p>"Paint and Sip" is a social event where participants create a painting while enjoying drinks, typically wine.
+              Guests follow step-by-step guidance to complete their own unique artwork, making it a popular activity for group outings, parties, or creative relaxation.</p>
+      </div>
+  </div>
+</section>
+
+<!------------------------- CARD SECTION  ---------------------------->
+
+<section id="card-section" class="card-section animate-section">
+  <!-- Wavy top SVG -->
+  <svg class="wavy-top" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#fdf5e6" fill-opacity="1" d="M0,96L80,128C160,160,320,224,480,218.7C640,213,800,139,960,122.7C1120,107,1280,149,1360,170.7L1440,192L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path>
+  </svg>
+
+  <!-- Heading -->
+  <h2 class="card-heading">Where did paint and sip come from?</h2>
+  
+<!-- Cream-colored boxes with flip effect -->
+<div class="card-box-container">
+  <!-- First card example -->
+  <div class="card-box" data-year="2007" onclick="flipCard(this, 'sounds/goopy-slime-16-229630.mp3')">
+      <div class="front-content">2007</div>
+      <div class="back-content" data-year="2007">
+          <p>Cathy Deano and Renee Maloney founded the first paint and sip studio, Painting with a Twist, in Mandeville, Louisiana.</p>
+      </div>
+  </div>
+
+  <!-- Second card -->
+  <div class="card-box" data-year="2010s" onclick="flipCard(this, 'sounds/goopy-slime-16-229630.mp3')">
+      <div class="front-content">2010's</div>
+      <div class="back-content" data-year="2010s">
+          <p>Painting with a Twist expanded rapidly, opening franchise locations across the U.S. </p>
+      </div>
+  </div>
+
+  <!-- Third card -->
+  <div class="card-box" data-year="2016" onclick="flipCard(this, 'sounds/goopy-slime-16-229630.mp3')">
+      <div class="front-content">2016</div>
+      <div class="back-content" data-year="2016">
+          <p>Paint and sip went global, with studios opening in cities worldwide. Companies introduced themed events, virtual paint nights, and wine pairings.</p>
+      </div>
+  </div>
+  </div>
+  </section>
+<!--------------------------- EVENTS SECTION  ---------------------------->
+
+<section id="events-section" class="events-section animate-section">
+  <!-- Rotated heading -->
+  <h2 class="events-heading">Events</h2>
+
+  <!-- Images in thin rounded rectangles with captions -->
+  <div class="event-images-container">
+      <div class="event-image" style="background-image: url('images/christmas.jpeg');">
+          <p class="event-caption">Christmas</p>
+      </div>
+      <div class="event-image" style="background-image: url('images/corp.jpeg');">
+          <p class="event-caption">Work Parties</p>
+      </div>
+      <div class="event-image" style="background-image: url('images/baby.jpeg');">
+          <p class="event-caption">Baby Showers</p>
+      </div>
+      <div class="event-image" style="background-image: url('images/kids.jpeg');">
+          <p class="event-caption">Kids Parties</p>
+      </div>
+      <div class="event-image" style="background-image: url('images/bride.jpeg');">
+          <p class="event-caption">Bridal Showers</p>
+      </div>
+  </div>
+</section>
+
+<!------------------------- BENEFITS SECTION  ---------------------------->
+
+<section id="benefits-section" class="benefits-section parallax-section">
+  <!-- Section Heading -->
+  <h2 class="benefits-heading">Benefits</h2>
+
+
+  <!-- Carousel Container -->
+  <div class="carousel-container2">
+      <!-- Left Arrow -->
+      <div class="carousel-arrow left-arrow" onclick="prevSlide()">&#9664;</div>
+
+      <!-- Slides -->
+      <div class="slide" id="slide1">
+          <img src="images/brain.png" alt="Benefit 1" class="benefit-image image1">
+          <div class="benefit-text">
+              <p class="benefit-title">Relieves Stress</p>
+              <p class="benefit-description">Art can be a relaxing way to reduce anxiety and feel at ease.</p>
+          </div>
+      </div>
+
+      <div class="slide" id="slide2" style="display: none;">
+          <img src="images/friends.png" alt="Benefit 2" class="benefit-image image2">
+          <div class="benefit-text">
+              <p class="benefit-title">Social Connection</p>
+              <p class="benefit-description">Enjoying art together builds bonds and strengthens relationships.</p>
+          </div>
+      </div>
+
+      <div class="slide" id="slide3" style="display: none;">
+          <img src="images/creativity.png" alt="Benefit 3" class="benefit-image image3">
+          <div class="benefit-text">
+              <p class="benefit-title">Boosts Creativity</p>
+              <p class="benefit-description">Engaging in art activities can enhance your creative thinking.</p>
+          </div>
+      </div>
+
+      <!-- Right Arrow -->
+      <div class="carousel-arrow right-arrow" onclick="nextSlide()">&#9654;</div>
+  </div>
+</section>
+
+
+
+<!-------------------------- WINE AND CHEESE SECTION ---------------------------->
+
+
+<section id="wine-cheese-section"  class="wine-cheese-section animate-section">
+  <h2 class="wine-cheese-heading">Wine & Cheese Pairings</h2>
+
+  <div class="pairing-container">
+    <div class="cheese-selector">
+      <div class="main-cheese">
+        <sl-animation id="cheese-animation" name="zoom-in" duration="500" iterations="1">
+          <img id="cheese-image" src="images/redcheese.png" alt="Gouda Cheese" class="cheese-image">
+        </sl-animation>
+        <p id="cheese-name" class="cheese-name">Gouda</p>
+      </div>
+      <div class="cheese-options">
+        <div class="cheese-option" onclick="showPairing('gouda')">
+          <img src="images/redcheese.png" alt="Gouda">
+        </div>
+        <div class="cheese-option" onclick="showPairing('brie')">
+          <img src="images/squarecheese.png" alt="Brie">
+        </div>
+        <div class="cheese-option" onclick="showPairing('cheddar')">
+          <img src="images/roundcheese.png" alt="Cheddar">
+        </div>
+        <div class="cheese-option" onclick="showPairing('blue')">
+          <img src="images/chipcheese.png" alt="BlueCheese">
+        </div>
+      </div>
+    </div>
+
+    <div class="wine-display">
+      <div class="wine-info-box">
+        <sl-animation id="wine-animation" name="zoom-in" duration="500" iterations="1">
+          <img id="wine-image" src="images/bluewinefat.png" alt="Pinot Noir" class="wine-image">
+        </sl-animation>
+        <p id="wine-name" class="wine-name">Pinot Noir + Sauvignon Blanc</p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Hidden wine images for easy referencing in JavaScript -->
+  <img id="pinot_noir" src="images/bluewinefat.png" alt="Pinot Noir" style="display: none;">
+  <img id="chardonnay" src="images/pinkwinelong.png" alt="Chardonnay" style="display: none;">
+  <img id="cabernet" src="images/bluewinelong.png" alt="Cabernet Sauvignon" style="display: none;">
+  <img id="port" src="images/pinkwinefat.png" alt="Port" style="display: none;">
+
+  <!-- Hidden cheese images for easy referencing in JavaScript -->
+  <img id="gouda" src="images/redcheese.png" alt="Gouda Cheese" style="display: none;">
+  <img id="brie" src="images/squarecheese.png" alt="Brie Cheese" style="display: none;">
+  <img id="cheddar" src="images/roundcheese.png" alt="Cheddar Cheese" style="display: none;">
+  <img id="blue" src="images/chipcheese.png" alt="BlueCheese" style="display: none;">
+</section>
+
+
+<!-------------------------- TUTORIALS SECTION ---------------------------->
+
+<section id="tutorials-section" class="tutorials-section animate-section">
+  <!-- Section Heading -->
+  <h2 class="tutorials-heading">Gallery of Tutorials</h2>
+
+ <!-- Animated Brushstroke SVG -->
+ <svg width="800" height="20" viewBox="0 0 800 20" class="brushstroke-svg" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#fdf5e6" stroke-width="8" stroke-linecap="round">
+  <!-- Brushstroke path -->
+  <path d="M10,10 C200,20 600,0 790,10" />
+</svg>
+
+  <!-- Gallery of Tutorials -->
+  <div class="tutorial-gallery">
+      <!-- Colour Mixing Tutorial -->
+      <div class="tutorial-frame yellow-frame" onmouseover="jiggle(this)" onmouseleave="removeJiggle(this)">
+          <div class="frame-title">Colour Mixing</div>
+          <div class="frame-content">
+              <iframe src="https://www.youtube.com/embed/gXAZ6b9y_Sw" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+      </div>
+
+      <!-- Sketching Basics Tutorial -->
+      <div class="tutorial-frame orange-frame" onmouseover="jiggle(this)" onmouseleave="removeJiggle(this)">
+          <div class="frame-title">Sketching Basics</div>
+          <div class="frame-content">
+              <iframe src="https://www.youtube.com/embed/qqva-bcEnHA" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+      </div>
+
+      <!-- Painting Waves Tutorial -->
+      <div class="tutorial-frame pink-frame" onmouseover="jiggle(this)" onmouseleave="removeJiggle(this)">
+          <div class="frame-title">Painting Waves</div>
+          <div class="frame-content">
+              <iframe src="https://www.youtube.com/embed/_Ip8DQ5daX8" title="YouTube video player"  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!------------------------- FOOTER ---------------------------->
+
+<footer class="site-footer animate-section">
+  <!-- Contact Information -->
+  <div class="footer-contact">
+      <h3>Contact Us</h3>
+      <p>Paint and Sip Educational Experiences</p>
+      <p>456 Art Avenue, Creative City, CA 98765</p>
+      <p>Phone: (987) 654-3210</p>
+      <p>Email: <a href="mailto:info@paintandsip.com">info@paintandsip.com</a></p>
+  </div>
+
+  <!-- Logo and Name -->
+  <div class="footer-logo">
+      <img src="images/logo.png" alt="Paint & Sip Logo" >
+      <p class="footer-brand">Paint & Sip</p>
+      <p>&copy; 2024 Paint and Sip. All Rights Reserved.</p>
+      <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a> | <a href="#">Cookies Policy</a></p>
+  </div>
+
+  <!-- Social Media Icons using Shoelace Icons -->
+  <div class="footer-social">
+    <a href="#" aria-label="Facebook"><sl-icon name="facebook" class="social-icon"></sl-icon></a>
+    <a href="#" aria-label="Instagram"><sl-icon name="instagram" class="social-icon"></sl-icon></a>
+    <a href="#" aria-label="Twitter"><sl-icon name="twitter" class="social-icon"></sl-icon></a>
+  </div>
+</footer>
+
+<!--------------------------------------------------------------------->
+
+    <script src="main.js"></script>
+</body>
+</html>
+
+
+
+
+<!---------------------CODE REFERENCES -----------------------
+
+Shoelace. "Shoelace CSS Library." Version 2.0.0-beta.70. Accessed October 31, 2024. https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.70/dist/shoelace.css.
+Shoelace. "Shoelace JavaScript Module." Version 2.0.0-beta.70. Accessed October 31, 2024. https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.70/dist/shoelace.js.
+GreenSock. "GSAP (GreenSock Animation Platform) JavaScript Library." Version 3.10.4. Accessed October 31, 2024. https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js.
+GreenSock. "GSAP ScrollTrigger Plugin." Version 3.10.4. Accessed October 31, 2024. https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js.
+SVG Background Wave. Created using SVG path data. Accessed October 31, 2024. https://www.svgbackgrounds.com/svg-backgrounds/wave/.
+Custom SVG Brushstroke Animation. Created using SVG path data. Accessed October 31, 2024. No external link.
+-->
+
+
+<!---------------------IMAGE REFERENCES -----------------------
+Adobe Stock. "Designer Scribbling." Image 54995183. Accessed October 31, 2024. https://stock.adobe.com/au/images/designer-scribbling/54995183.
+Adobe Stock. "Vintage Frame Photo Picture Painting Drawing Template Icons Set." Image 215850059. Accessed October 31, 2024. https://stock.adobe.com/au/images/vintage-frame-photo-picture-painting-drawing-template-icons-set-wall-background-flat-design-vector-illustration/215850059.
+Adobe Stock. "Set of Wine Bottles of Different Shapes and Types." Image 580380967. Accessed October 31, 2024. https://stock.adobe.com/au/images/set-of-wine-bottles-of-different-shapes-and-types-vintage-colors-vector-illustration/580380967.
+Adobe Stock. "Set of Cheese Parts and Slices Isolated on a White Background." Image 766996988. Accessed October 31, 2024. https://stock.adobe.com/au/images/set-of-cheese-parts-and-slices-isolated-on-a-white-background-cheese-flat-icon-vector-head-of-cheese-in-flat-style-isolated-on-white-background/766996988.
+Adobe Stock. "Girl and Boy Pre-Teen or Teenage Kids Cartoon Style Classmates Standing Together." Image 628122926. Accessed October 31, 2024. https://stock.adobe.com/au/images/girl-and-boy-pre-teen-or-teenage-kids-cartoon-style-classmates-school-children-standing-together-trendy-modern-vector-illustration-isolated-on-white-hand-drawn-flatdesign/628122926.
+Adobe Stock. "Different Ways of Creativity – Children’s Hands at Art Class." Image 630087787. Accessed October 31, 2024. https://stock.adobe.com/au/images/different-ways-of-creativity-childrens-hands-at-art-class-digital-painting-and-hand-drawing-top-view-cartoon-style-trendy-modern-vector-illustration-isolated-on-whitebackground-flat-design/630087787.
+Adobe Stock. "7 School One Phys Cur." Image 914470671. Accessed October 31, 2024. https://stock.adobe.com/au/images/7-school-one-phys-cur/914470671.
+Adobe Stock. "Happy Young Boy Having Birthday Party." Image 270795344. Accessed October 31, 2024. https://stock.adobe.com/au/images/happy-young-boy-having-birthday-party/270795344.
+Adobe Stock. "Happy Co-Workers Celebrating During Company Party and Corporate Event." Image 307356893. Accessed October 31, 2024. https://stock.adobe.com/au/images/happy-co-workers-celebrating-while-company-party-and-corporate-event-young-caucasian-people-in-business-attire-cheering-laughting-concept-of-office-cultureteamwork-friendship-holidays-weekend/307356893.
+Adobe Stock. "Girls Party – Beautiful Women Friends in Robes Having Fun." Image 186239430. Accessed October 31, 2024. https://stock.adobe.com/au/images/girls-party-beautiful-women-friends-in-robes-having-fun/186239430.
+Adobe Stock (via Fotolia). "Colorful Artistic Background with Various Brush Strokes and Textures." Image 386361348. Accessed October 31, 2024. https://as2.ftcdn.net/v2/jpg/03/86/36/13/1000_F_386361348_8mZDKre8MR76Q05WeWsfC6kAy52hKPWI.jpg.
+Adobe Stock (via Fotolia). "Artistic Abstract Colorful Brushstrokes Background." Image 74890468. Accessed October 31, 2024. https://as1.ftcdn.net/v2/jpg/00/74/89/04/1000_F_74890468_rOkXBYLXVSlCJAWP5upDYmYIGu15pxJW.jpg.
+Adobe Stock (via Fotolia). "Close-Up of Art Supplies on an Artist’s Desk." Image 629689958. Accessed October 31, 2024. https://as2.ftcdn.net/v2/jpg/06/29/68/99/1000_F_629689958_uRYzjG9aJux0iX6WqaHZhQiWPZNmRCrQ.jpg.
+Adobe Stock. "Painting Workshop – Friends Toasting Happily with Glasses of Wine in a Painting Workshop." Image 646451720. Accessed October 31, 2024. https://stock.adobe.com/au/images/painting-workshop-friends-toasting-happily-with-glasses-of-wine-in-a-painting-workshop/646451720.
+-->
+
+<!---------------------NOISE REFERENCES -----------------------
+Pixabay. "Goopy Slime 16." Accessed October 31, 2024. https://pixabay.com/sound-effects/search/squish/.
+->

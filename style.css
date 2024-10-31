@@ -1,0 +1,1322 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.animate-section {
+  opacity: 0;
+  transform: translateY(50px); /* Starts the section slightly lower */
+}
+
+
+/*----------------------HEADER-------------------------------------------------------*/
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+}
+
+/* Header Styles */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #30b8bc; /* Turquoise color */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px 15px;
+  z-index: 1000;
+  font-family: "Poppins", sans-serif;
+  font-size: 20pt;
+}
+
+/* Logo Styles */
+.logo img {
+  width: 90px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+/* Shake Animation */
+@keyframes shake {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+}
+
+/* Custom Shoelace Styles for Header */
+header sl-tab-group {
+  --indicator-color: #ffc501; /* Indicator color on active */
+  font-family: "Poppins", sans-serif;
+  color: white;
+  gap: 50px;
+}
+
+header sl-tab::part(base) {
+  color: white;
+  font-weight: bold;
+  padding: 8px;
+  transition: color 0.3s;
+  margin-right: 80px;
+}
+
+header sl-tab::part(base):hover {
+  color: #ffc501;
+}
+
+
+.shake {
+  animation: shake 0.5s;
+}
+
+
+/*--------------------------------HISTORY-------------------------------------------------------*/
+
+/* History Section Styles */
+.history-section {
+  display: flex;
+  padding: 180px 50px 0px;
+  background-color: #fdf5e6; /* Cream background */
+  align-items: center;
+  position: relative;
+}
+
+/* Carousel Container */
+.carousel-container {
+  position: relative;
+  width: 80%;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  transition: transform 0.5s ease-in-out; /* Smooth transition for sliding */
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: 15px;
+  flex-shrink: 0; /* Ensure images stay the same width */
+}
+
+/* Carousel Navigation Buttons */
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 25px;
+  color: #0e0e0e;
+  background-color: #ffffff;
+  border: none;
+  padding: 8px 20px 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 10; /* Ensures buttons stay on top */
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+/* Text and Title */
+.text-container {
+  width: 50%;
+  margin-left: 80px;
+}
+
+.hero-title {
+  font-family: 'Gloss and Bloom', cursive;
+  font-size: 110px;
+  color: #fe517f;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+
+
+/* Popup Trigger */
+.popup-trigger {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+  align-items: center;
+  margin-left: 120px;
+}
+
+.spinning-shape {
+  width: 400px;
+  height: 400px;
+  margin-right: 20px; /* Moves the shape more to the right */
+  animation: spin 10s linear infinite; 
+}
+
+/* Shape Text */
+.shape-text {
+  position: absolute;
+  top: 50%;
+  left: 48%;
+  width: 50%; /* Ensure the text fits within the shape */
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-size: 25px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center; /* Center-align text within the shape */
+  line-height: 1.2; /* Adjust line-height for better fit */
+  white-space: normal; /* Ensure text wraps within width */
+}
+
+/* Spin Animation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Popup Modal */
+.popup {
+  display: none;
+  position: absolute;
+  top: 30%;
+  left: 15%;
+  width: 70%;
+  padding: 20px;
+  background-color: #ffc501; /* Yellow background */
+  border-radius: 15px;
+  color: #333;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.popup-title {
+  font-family: 'Gloss and Bloom', cursive;
+  font-size: 50px;
+  color: #fdf5e6;
+  text-align: center;
+}
+
+.popup-content {
+  align-items: center;
+  justify-content: center;
+  background-color: #fdf5e6; /* Cream color */
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.popup-content img {
+  margin-right: 10px;
+  width: 30%;
+}
+
+.popup-content p {
+  font-size: 25px;
+  color: #ff69b4; /* Pink text color */
+  font-family: 'Poppins', sans-serif;
+  margin: 20px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fdf5e6;
+}
+
+/*--------------------------------CARD-------------------------------------------------------*/
+
+/* Card Section styling */
+.card-section {
+  background-color: #fd9325; /* Orange background */
+  padding-bottom: 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* Wavy SVG edge at the top */
+.wavy-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1; /* Keeps the wave behind the heading */
+ 
+}
+
+/*///////
+
+/* Heading styling */
+.card-heading {
+  font-family: 'Gloss and Bloom', sans-serif;
+  color: #fdf5e6; /* Color for heading */
+  font-size: 47pt;
+  margin-top: 340px; /* Adjusts position under the curve */
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 2; /* Ensures heading is in front of the SVG */
+}
+
+
+/* Container for the cards */
+.card-box-container {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  flex-wrap: wrap;
+}
+
+/* Card box setup */
+.card-box {
+  background-color: #FDF3E7; /* Cream color for front */
+  width: 500px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 60pt;
+  font-weight: bold;
+  color: #fe517f;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+/* Front and back content styles */
+.front-content,
+.back-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  transition: transform 0.6s;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: inherit;
+  text-align: center;
+}
+
+.front-content {
+  background-color: #FDF3E7;
+  color: inherit; /* Color based on the card's data-year */
+}
+
+.back-content {
+  color: #ffffff; /* White text for contrast */
+  font-size: 20pt; /* Adjust font size for readability */
+  transform: rotateY(180deg);
+}
+
+/* Flip effect */
+.card-box[flipped] .front-content {
+  transform: rotateY(180deg);
+}
+
+.card-box[flipped] .back-content {
+  transform: rotateY(0deg);
+}
+
+/* Solid background colors for each year */
+.back-content[data-year="2007"] {
+  background-color: #ffc501; /* Yellow background */
+}
+
+.back-content[data-year="2010s"] {
+  background-color: #30b8bc; /* Blue background */
+}
+
+.back-content[data-year="2016"] {
+  background-color: #fe517f; /* Pink background */
+}
+
+/* Text colors for front content */
+.card-box[data-year="2007"] .front-content {
+  color: #ffc501;
+}
+
+.card-box[data-year="2010s"] .front-content {
+  color: #30b8bc;
+}
+
+.card-box[data-year="2016"] .front-content {
+  color: #fe517f;
+}
+
+/*--------------------------------Events-------------------------------------------------------*/
+
+/* Events Section styling */
+.events-section {
+  background-color: #FDF3E7; /* Cream color */
+  padding-top: 100px;
+  padding-bottom: 100px;
+  padding-left: 100px;
+  padding-right: 100px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Rotated heading on the left */
+.events-heading {
+  font-family: 'Gloss and Bloom', sans-serif;
+  font-size: 40pt;
+  color: #30b8bc;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  margin-right: 2rem;
+  
+}
+
+/* Container for images */
+.event-images-container {
+  display: flex;
+  gap: 50px;
+  flex-wrap: nowrap; /* Keeps images side by side */
+  overflow-x: auto; /* Allows scrolling if the screen is too small */
+  width: 100%;
+}
+
+/* Individual event image styling */
+.event-image {
+  width: 300px; /* Initial thin shape */
+  height: 350px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transition: width 0.3s ease, height 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Hover effect to expand image */
+.event-image:hover {
+  width: 300px; /* Full size on hover */
+  height: 500px;
+}
+
+/* Event caption */
+.event-caption {
+  position: absolute;
+  bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  color: #ffffff; /* Grey color */
+  padding: 5px 10px;
+  font-size: 30px;
+  text-align: center;
+  margin-left: 10px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+/*--------------------------------Benefits-------------------------------------------------------*/
+
+/* Benefits Section styling with Parallax */
+.benefits-section {
+  background-image: url('images/paint.jpeg'); /* Replace with your background image path */
+  background-attachment: fixed; /* Creates the parallax effect */
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  position: relative;
+  padding-bottom: 40px;
+  color: #fdf5e6; /* White text color */
+  padding-top: 70px;
+}
+
+/* Centered heading */
+.benefits-heading {
+  font-family: 'Gloss and Bloom', sans-serif;
+  font-size: 47pt;
+  color: #fdf5e6;
+  position: relative;
+  z-index: 2;
+}
+
+
+/* Carousel container */
+.carousel-container2 {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Carousel arrows */
+.carousel-arrow {
+  font-size: 48px;
+  color: #ffc501;
+  cursor: pointer;
+  padding: 0 40px;
+  user-select: none;
+  transition: color 0.2s ease;
+}
+
+.carousel-arrow:hover {
+  color: #ffae00;
+}
+
+/* Slide styling */
+.slide {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  max-width: 70%;
+  transition: opacity 0.5s ease;
+}
+
+.benefit-image {
+  border-radius: 20px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.benefit-image.image1 {
+  width: 450px;
+  height: 350px;
+}
+
+.benefit-image.image2 {
+  width: 280px;
+  height: 350px;
+}
+
+.benefit-image.image3 {
+  width: 430px;
+  height: 350px;
+}
+
+.benefit-image:hover {
+  transform: scale(1.1);
+}
+
+.benefit-text {
+  max-width: 450px;
+}
+
+.benefit-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 30pt;
+  color: #fdf5e6;
+  margin-bottom: 10px;
+}
+
+.benefit-description {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20pt;
+  color: #fdf5e6;
+}
+
+
+
+/*--------------------------------WINE AND CHEESE SECTION-------------------------------------------------------*/
+
+/* Wine & Cheese Pairings Section */
+.wine-cheese-section {
+  background-color: #fdf5e6; /* Cream background */
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+/* Section Heading */
+.wine-cheese-heading {
+  font-family: 'Gloss and Bloom', sans-serif;
+  font-size: 48pt;
+  color: #fe7f2d; /* Orange color for the heading */
+  margin-bottom: 2rem;
+}
+
+
+
+/* Pairing Container */
+.pairing-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+}
+
+/* Cheese Selector */
+.cheese-selector {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+}
+
+/* Main Cheese Image and Name */
+.main-cheese {
+  display: flex;
+  flex-direction: column;
+  margin-right: 80px;
+  align-items: center;
+  scale: 180%
+  
+}
+
+.cheese-image {
+  width: 200px; /* Large size for main cheese image */
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.cheese-name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 18pt;
+  color: #fe7f2d; /* Orange */
+}
+
+/* Cheese Options */
+.cheese-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cheese-option img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid #fe7f2d;
+  cursor: pointer;
+  transition: transform 0.3s;
+  color: #fd9325;
+}
+
+.cheese-option img:hover {
+  transform: scale(1.1);
+}
+
+/* Wine Display */
+.wine-display {
+  background-color: #ffc501;
+  padding: 2rem;
+  border: 2px solid #fe7f2d; /* White and orange outline */
+  border-radius: 10px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wine-info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wine-image {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.wine-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16pt;
+  color: white;
+  text-align: center;
+}
+
+/* Zoom-in animation */
+@keyframes zoom-in {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.cheese-image,
+.wine-image {
+  transition: transform 3s ease, opacity 1s ease;
+}
+
+.animate-zoom {
+  animation: zoom-in 0.5s forwards;
+}
+
+
+
+
+/*--------------------------------Tutorials-------------------------------------------------------*/
+
+/* Tutorials Section */
+.tutorials-section {
+  background-color: #30b8bc;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+/* Section Heading */
+.tutorials-heading {
+  font-family: 'Gloss and Bloom', sans-serif;
+  font-size: 48pt;
+  color: #fdf5e6;
+  margin-bottom: 5px;
+}
+
+iframe {
+  border: none; /* Removes any border */
+}
+
+/* Brushstroke SVG Styling */
+.brushstroke-svg {
+  margin-top: -10px; /* Slightly overlap with heading */
+  margin-bottom: 150px;
+  stroke-dasharray: 800; /* Total length of the path */
+  stroke-dashoffset: 800; /* Initially hide the stroke */
+  animation: drawBrushstroke 2s ease forwards; /* Trigger animation */
+}
+
+@keyframes drawBrushstroke {
+  from {
+    stroke-dashoffset: 800; /* Start with hidden stroke */
+  }
+  to {
+    stroke-dashoffset: 0; /* Reveal the stroke */
+  }
+}
+
+.brushstroke-svg {
+  stroke-dashoffset: 300;
+  transition: stroke-dashoffset 2s ease;
+}
+
+.brushstroke-svg.visible {
+  stroke-dashoffset: 0;
+}
+
+
+
+
+/* Gallery Layout */
+.tutorial-gallery {
+  display: flex;
+  flex-direction: row; /* Arrange frames in a row */
+  justify-content: center;
+  gap: 5rem; /* Space between frames */
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+/* Tutorial Frame Styling */
+.tutorial-frame {
+  position: relative;
+  width: 600px; /* Adjust frame size as needed */
+  height: 350px; /* Adjust frame size as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Zoom Effect */
+.tutorial-frame:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Curved Title */
+.frame-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22pt;
+  color: #fdf5e6;
+  position: absolute;
+  top: -4rem;
+  left: 0;
+  white-space: nowrap;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* Frame Content Styling */
+.frame-content {
+  position: relative;
+  overflow: hidden;
+  border: 30px solid; /* Thicker frame with hard edges */
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Different Colors for Each Frame */
+.yellow-frame .frame-content {
+  border-color: #ffc501; /* Yellow frame */
+}
+
+.orange-frame .frame-content {
+  border-color: #fe517f; /* Orange frame */
+}
+
+.pink-frame .frame-content {
+  border-color: #fd9325; /* Pink frame */
+}
+
+/* Styling the iframe to fill the frame */
+.frame-content iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/*--------------------------------Footer-------------------------------------------------------*/
+
+/* Footer Styling */
+.site-footer {
+  background-color: #ffc501; /* Yellow background */
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 3rem;
+  font-family: 'Poppins', sans-serif;
+  flex-wrap: nowrap;
+  text-align: center;
+}
+
+/* Contact Information */
+.footer-contact {
+  max-width: 250px;
+  text-align: left;
+  font-size: 16px;
+}
+
+.footer-contact p {
+  margin: 0.3rem 0;
+}
+
+.footer-contact h3 {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+/* Logo and Brand Name */
+.footer-logo {
+  text-align: center;
+}
+
+.footer-logo img {
+  width: 100px;
+  height: auto;
+}
+
+/* Paint & Sip Text under Logo */
+.footer-brand {
+  font-family: 'Gloss and Bloom', sans-serif;
+  font-size: 15px;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* Footer Links */
+.footer-logo p {
+  font-size: 20px;
+  color: #ffffff;
+}
+
+.footer-logo a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-logo a:hover {
+  text-decoration: underline;
+}
+
+/* Social Media Icons */
+.footer-social a {
+  display: inline-block;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: transform 0.3s;
+  font-size: 50px;
+  margin-top: 140px;
+}
+
+.social-icon {
+  color: #ffffff;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-social a:hover .social-icon {
+  color: #ffae00; /* Darker yellow on hover */
+  transform: scale(1.1);
+}
+
+
+
+/*--------------------------------MEDIA QUERIES-------------------------------------------------------*/
+
+
+
+/* Desktops (1024px and above) */
+@media (min-width: 1024px) and (max-width: 1919px) {
+  /* Adjustments for screens between 1024px and 1920px */
+
+  body, html {
+    overflow-x: hidden;
+  }
+
+ /* Header adjustments */
+ header {
+  padding: 10px 10px;
+  font-size: 10pt;
+}
+
+.logo img {
+  width: 80px; /* Slightly smaller logo */
+}
+
+/* Navigation adjustments */
+header sl-tab-group {
+  gap: 40px;
+}
+
+header sl-tab::part(base) {
+  margin-right: 60px; /* Reduce gap between navigation tabs */
+  font-size: 14pt;
+}
+
+
+.history-section {
+  padding: 160px 40px 0px;
+}
+
+.hero-title {
+  font-size: 55px; /* Slightly smaller heading */
+  margin-left: 0px;
+  margin-top: 0px;
+}
+
+/* Popup adjustments */
+.spinning-shape {
+  width: 60%;
+  height: 60%;
+  left: 10%;
+}
+
+.popup-trigger {
+  margin-left: 10px;
+}
+
+.shape-text{
+  font-size: 20px;
+  left: 30%;
+  width: 30%;
+}
+
+
+
+
+/* Card Section */
+.card-section {
+  padding-bottom: 60px;
+}
+
+.card-heading {
+  font-size: 30pt;
+  margin-bottom: 30px;
+  margin-top: 200px;
+}
+
+.card-box {
+  width: 250px;
+  height: 250px;
+  font-size: 25pt;
+}
+
+.card-box-container {
+  gap: 40px;
+}
+
+.back-content {
+  font-size: 15px;
+}
+
+
+
+
+/* Events Section */
+.events-section {
+  padding: 50px 40px;
+}
+
+.events-heading {
+  font-size: 30pt;
+  margin-right: 0px;
+}
+
+.event-images-container {
+  gap: 30px;
+}
+
+.event-image {
+  width: 280px;
+  height: 280px;
+}
+
+.event-caption {
+  font-size: 20px;
+}
+
+
+
+/* Benefits Section */
+.benefits-section {
+  padding: 50px 30px;
+  background-attachment: fixed;
+}
+
+.benefits-heading {
+  font-size: 40pt;
+}
+
+.carousel-arrow {
+  font-size: 40px;
+}
+
+.benefit-image.image1,
+.benefit-image.image2,
+.benefit-image.image3 {
+  width: 350px;
+  height: 300px;
+}
+
+.benefit-title {
+  font-size: 25pt;
+}
+
+.benefit-description {
+  font-size: 18pt;
+}
+
+/* Wine & Cheese Section */
+.wine-cheese-section {
+  padding: 2rem 1rem;
+}
+
+.wine-cheese-heading {
+  font-size: 40pt;
+}
+
+.pairing-container {
+  gap: 3rem;
+}
+
+/* Tutorials Section */
+.tutorials-section {
+  padding: 3rem 1rem;
+}
+
+.tutorials-heading {
+  font-size: 42pt;
+}
+
+.tutorial-frame {
+  width: 500px;
+  height: 300px;
+}
+
+/* Footer adjustments */
+.site-footer {
+  padding: 1.5rem 2rem;
+}
+
+.footer-logo img {
+  width: 90px;
+}
+
+.footer-social a {
+  font-size: 40px;
+}
+
+
+}
+
+
+
+
+/* Mobile (768px and below) */
+@media (max-width: 768px) {
+  /* Mobile specific adjustments */
+
+
+  body, html {
+    overflow-x: hidden;
+  }
+
+
+ /* Header adjustments */
+ header {
+  flex-direction: column;
+  padding: 10px 20px;
+  font-size: 16pt;
+}
+
+.logo img {
+  width: 70px;
+}
+
+
+
+/* Shoelace navigation adjustments */
+header sl-tab-group {
+  gap: 20px;
+}
+
+header sl-tab::part(base) {
+  margin-right: 20px;
+  font-size: 14pt;
+}
+
+
+.history-section {
+  flex-direction: column;
+  text-align: center;
+}
+
+.carousel-container {
+  width: 100%;
+}
+
+.text-container {
+  width: 90%;
+  margin: 0;
+}
+
+.hero-title {
+  font-size: 80px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+
+
+/* Popup */
+.popup {
+  width: 90%;
+  left: 5%;
+}
+
+.popup-trigger {
+  margin-left: 0px;
+  margin-bottom: 30px;
+}
+
+
+
+
+/* Card Section */
+.card-section {
+  padding: 50px 10px;
+}
+
+.card-box-container {
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.card-heading {
+  margin-top: 100px;
+  font-size: 45px;
+  width: 90%;
+  padding-left: 15%;
+}
+
+.card-box {
+  width: 400px;
+  height: 300px;
+  margin-left: 23%;
+}
+
+.back-content {
+  font-size: 20px;
+}
+
+
+
+/* Events Section */
+
+.events-section {
+  padding-left: 10px;
+  padding-right: 20px;
+  padding-top: 40px ;
+  padding-bottom: 40px ;
+}
+
+.events-heading {
+  margin-right: 0%;
+}
+
+.event-caption {
+  width: 100px;
+  height: 100px;
+}
+
+.event-images-container {
+  overflow-x:initial;
+  width: 200%;
+  gap:30px;
+}
+
+
+
+
+
+/* Benefits Section */
+.benefits-section {
+  padding: 30px 15px;
+  background-attachment: scroll;
+}
+
+.carousel-container2 {
+  flex-direction: column;
+}
+
+.carousel-arrow {
+  font-size: 30px;
+  padding: 20px 0px;
+}
+
+.benefit-image.benefit-image.image1 {
+  width: 50%;
+  height: auto;
+}
+.benefit-image.benefit-image.image2 {
+  width: 50%;
+  height: auto;
+}
+.benefit-image.benefit-image.image3 {
+  width: 50%;
+  height: auto;
+}
+
+.benefit-title {
+  font-size: 24pt;
+}
+
+.benefit-description {
+  font-size: 16pt;
+}
+
+
+
+
+
+
+/* Wine & Cheese Section */
+.wine-cheese-section {
+  padding: 40px 10px;
+}
+
+.wine-cheese-heading {
+  font-size: 42pt;
+  margin-bottom: 1rem;
+}
+
+.pairing-container {
+  flex-direction: column;
+  gap: 20px;
+}
+
+.main-cheese {
+  scale: 130%;
+  margin-right: 80px;
+}
+
+.cheese-selector, .wine-display {
+  gap: 10px;
+}
+
+.wine-display {
+  width: 50%;
+  padding: 1.3rem;
+}
+
+
+
+/* Tutorials Section */
+.tutorials-section {
+  padding: 30px;
+}
+
+.tutorials-heading {
+  font-size: 42pt;
+  margin-bottom: 1rem;
+}
+
+
+
+.frame-title {
+  font-size: 18pt;
+  top: -3rem;
+}
+
+
+
+/* Footer */
+.site-footer {
+  flex-direction: column;
+  padding: 1rem;
+  text-align: center;
+}
+
+.footer-logo img {
+  width: 80px;
+}
+
+.footer-logo p{
+font-size: 10px;
+}
+
+.footer-social a {
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+
+.footer-contact {
+  text-align: center;
+  font-size: 15px;
+  max-width: 500px;
+}
+
+
+}
